@@ -1,7 +1,17 @@
 # drupal.docker.template
-Project template for a Docker stack to setup a Drupal project.
+This repository is a template that you use for Drupal projects. 
+It is inspired and uses parts from the `drupal-composer` project: https://github.com/drupal-composer/drupal-project.
 
-This repository is a template that you can take and add it to your existing projects by copying the content of this repository into your project's directory customizing. Then you commit it to the git tree.
+
+## Start a new Drupal project
+
+Clone this repository somewhere and you can start a new project by just using composer to pull the Drupal core.
+
+```
+composer install
+```
+
+## Use the Docker parts in other projects
 
 1. Copy `.docker` and `docker-*.yml` files
 2. Copy `settings.local.example-dev.php` to `docroot/sites/default/files/settings.local.php`
@@ -18,6 +28,8 @@ server_name  PROJECT_NAME.local PROJECT_NAME.org PROJECT_NAME.ro PROJECT_NAME.eu
 2. Enable/Disable services you need from `docker-compose.yml`
 
 Commit everything in your directory tree.
+
+
 
 
 ## Project setup
