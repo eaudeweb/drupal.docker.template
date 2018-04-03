@@ -1,0 +1,34 @@
+version: '2.0'
+
+services:
+
+  nginx:
+    container_name: TODO_frontend
+    ports:
+    - "127.0.0.1:8891:80"
+    environment:
+    - TZ="Europe/Berlin"
+    restart: "unless-stopped"
+    volumes:
+    - ./web/robots.prod.txt:/var/www/html/web/robots.txt
+
+
+  php:
+    container_name: TODO_php
+    restart: "unless-stopped"
+    volumes:
+    - ./update-production.sh:/var/www/html/update-production.sh:ro
+
+
+  db:
+    container_name: TODO_db
+    restart: "unless-stopped"
+#    ports:
+#    - "127.0.0.1:13306:3306"
+#    environment:
+#      MYSQL_ROOT_PASSWORD: "@TODO"
+
+
+#  solr6:
+#    container_name: TODO_solr6
+#    restart: "unless-stopped"

@@ -5,13 +5,13 @@ services:
   nginx:
     image: nginx:latest
     depends_on:
-    - php71
+    - php
     volumes:
     - .docker/conf-nginx/globals.conf:/etc/nginx/conf.d/globals.conf
     - .docker/conf-nginx/project.conf:/etc/nginx/conf.d/project.conf
     - .:/var/www/html/
 
-  php71:
+  php:
     image: cristiroma/php-fpm:latest
     depends_on:
     - db

@@ -1,0 +1,31 @@
+version: '2.0'
+
+services:
+
+  nginx:
+    container_name: TODO_frontend
+    ports:
+    - "127.0.0.1:80:80"
+    environment:
+    - TZ="Europe/Bucharest"
+    volumes:
+    - ./web/robots.dev.txt:/var/www/html/web/robots.txt
+
+
+  php:
+    container_name: TODO_php
+    volumes:
+#    - /home/user/.ssh/id_rsa:/root/.ssh/id_rsa:ro
+    - ./devify.sh:/var/www/html/devify.sh:ro
+
+
+  db:
+    container_name: TODO_db
+#    ports:
+#    - "127.0.0.1:13306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+
+
+#  solr6:
+#    container_name: TODO_solr6
